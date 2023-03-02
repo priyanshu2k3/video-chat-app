@@ -6,14 +6,14 @@ import { SocketProvider } from './providers/socket';
 function App() {
   return (
     <div className="App">
-      
+      <SocketProvider>
       <Routes>
-        <SocketProvider>
+       
         <Route path="/" element={<Homepage/>}/>
-        {/* <Route path="/" element={<Homepage/>}/> */}
-        </SocketProvider>
+        <Route path="/room/:roomId" element={<h1>hello</h1>}/>
+        
       </Routes>
-
+      </SocketProvider>
 
     </div>
   );
