@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSocket} from '../providers/socket';
-import {socket} from "socket.io-client"
+// import {socket} from "socket.io-client"
+// import { usePeer } from '../providers/peer';
 
 const Homepage = () => {
     const {socket}=useSocket();
