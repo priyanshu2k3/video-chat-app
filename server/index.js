@@ -35,11 +35,15 @@ io.on('connection',(socket)=>{
     socket.on("call-user",(data)=>{
         const {emailId,offer}=data;
         const fromEmail= socketToEmailMapping.get(socket.id);
+        const socketId=  emailToSocketMapping.get(emailId);
+
+        socket.to(socketId).emit('call-user',{from:fromEmail,offer})
+    })
+
+    socket.on("call-accepted",(data)=>{
+        const {emailId,ans}=data;
         const socketId=emailToSocketMapping.get(emailId);
-
-        socket.to(socketId).emit('incomming-call',{from:fromEmail,offer})
-
-
+        socket.to(socketId).emit('call-accepted',{ans})
     })
 });
 
